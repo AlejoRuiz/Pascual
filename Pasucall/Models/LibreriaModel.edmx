@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dbLibreriaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_Estudiante">
+          <Key>
+            <PropertyRef Name="documento" />
+          </Key>
+          <Property Name="documento" Type="int" Nullable="false" />
+          <Property Name="nombre_completo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="programa" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Libro">
+          <Key>
+            <PropertyRef Name="codigo" />
+          </Key>
+          <Property Name="codigo" Type="int" Nullable="false" />
+          <Property Name="nombre_autor" Type="varchar" MaxLength="50" />
+          <Property Name="nombre_libro" Type="varchar" MaxLength="30" />
+          <Property Name="fecha_nacimiento" Type="date" />
+          <Property Name="fecha_publicacion" Type="date" />
+        </EntityType>
+        <EntityContainer Name="dbLibreriaModelStoreContainer">
+          <EntitySet Name="tbl_Estudiante" EntityType="Self.tbl_Estudiante" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Libro" EntityType="Self.tbl_Libro" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbLibreriaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbl_Estudiante">
+          <Key>
+            <PropertyRef Name="documento" />
+          </Key>
+          <Property Name="documento" Type="Int32" Nullable="false" />
+          <Property Name="nombre_completo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="programa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Libro">
+          <Key>
+            <PropertyRef Name="codigo" />
+          </Key>
+          <Property Name="codigo" Type="Int32" Nullable="false" />
+          <Property Name="nombre_autor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombre_libro" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_nacimiento" Type="DateTime" Precision="0" />
+          <Property Name="fecha_publicacion" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityContainer Name="dbLibreriaEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_Estudiante" EntityType="Self.tbl_Estudiante" />
+          <EntitySet Name="tbl_Libro" EntityType="Self.tbl_Libro" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbLibreriaModelStoreContainer" CdmEntityContainer="dbLibreriaEntities2">
+          <EntitySetMapping Name="tbl_Estudiante">
+            <EntityTypeMapping TypeName="dbLibreriaModel.tbl_Estudiante">
+              <MappingFragment StoreEntitySet="tbl_Estudiante">
+                <ScalarProperty Name="documento" ColumnName="documento" />
+                <ScalarProperty Name="nombre_completo" ColumnName="nombre_completo" />
+                <ScalarProperty Name="programa" ColumnName="programa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Libro">
+            <EntityTypeMapping TypeName="dbLibreriaModel.tbl_Libro">
+              <MappingFragment StoreEntitySet="tbl_Libro">
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="nombre_autor" ColumnName="nombre_autor" />
+                <ScalarProperty Name="nombre_libro" ColumnName="nombre_libro" />
+                <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
+                <ScalarProperty Name="fecha_publicacion" ColumnName="fecha_publicacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

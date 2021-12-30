@@ -1,0 +1,50 @@
+﻿@model Pasucall.Models.tbl_Libro
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/StyleSheet.css" rel="stylesheet" />
+<h2>Detalles del libro</h2>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label>Nombre Autor</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre_autor)
+        </dd>
+
+        <dt>
+            <label>Nombre Libro</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre_libro)
+        </dd>
+
+        <dt>
+            <label>Fecha Nacimiento</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_nacimiento)
+        </dd>
+
+        <dt>
+            <label>Fecha Publicacion</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_publicacion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <button type="button" class="btn btn btn-outline-dark">@Html.ActionLink("Volver", "Index")</button>
+</p>

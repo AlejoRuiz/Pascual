@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Pasucall.Models.tbl_Estudiante>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Estudiantes</h2>
+
+<button type="button" class="btn btn-success">   
+    @Html.ActionLink("Create New", "Create",null, new { @class = "my-class" })   
+</button>
+<br />
+<br />
+
+
+<table class="table table-dark">
+    
+    <tr>
+        <th>
+            <label>Documento</label>
+        </th>
+        <th>
+            <label>Nompre Completo</label>
+        </th>
+        <th>
+            <label>Programa</label>
+        </th>
+        <th><label>Acciones</label></th>
+    </tr>
+    <div class="text-center"></div>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.documento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre_completo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.programa)
+            </td>
+            <td>
+                <button type="button" class="btn btn-outline-dark">@Html.ActionLink("Editar", "Edit", new { @class = "my-class", id = item.documento})</button>
+                 |<button type="button" class="btn btn-warning">@Html.ActionLink("Detalles", "Details", new { @class = "my-class", id = item.documento })</button>
+                 |<button type="button" class="btn btn-light" >@Html.ActionLink("Eliminar", "Delete", new { @class = "my-class", id = item.documento })</button>
+
+            </td>
+        </tr>
+    }
+
+</table>

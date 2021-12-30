@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbLibreriaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_Estudiante">
+    <Key>
+      <PropertyRef Name="documento" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_Completo" Type="varchar" MaxLength="75" Nullable="false" />
+    <Property Name="documento" Type="int" Nullable="false" />
+    <Property Name="programa" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Libros">
+    <Key>
+      <PropertyRef Name="nombre_Libro" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha_Nacimiento" Type="date" Nullable="false" />
+    <Property Name="lugar_Nacimiento" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="nombre_Libro" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="fecha_Publicacion" Type="date" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'dbLibreria.dbo.tbl_Prestamo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tbl_Prestamo">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="documento_Est" />
+      <PropertyRef Name="nombre_Libro" />
+      <PropertyRef Name="fecha_Reserva" />
+      <PropertyRef Name="fecha_Devuelta" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="documento_Est" Type="int" Nullable="false" />
+    <Property Name="nombre_Libro" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="fecha_Reserva" Type="date" Nullable="false" />
+    <Property Name="fecha_Devuelta" Type="date" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__tbl_Prest__fecha__1BFD2C07">
+    <End Role="tbl_Estudiante" Type="Self.tbl_Estudiante" Multiplicity="1" />
+    <End Role="tbl_Prestamo" Type="Self.tbl_Prestamo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Estudiante">
+        <PropertyRef Name="documento" />
+      </Principal>
+      <Dependent Role="tbl_Prestamo">
+        <PropertyRef Name="documento_Est" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Prest__nombr__1CF15040">
+    <End Role="tbl_Libros" Type="Self.tbl_Libros" Multiplicity="1" />
+    <End Role="tbl_Prestamo" Type="Self.tbl_Prestamo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Libros">
+        <PropertyRef Name="nombre_Libro" />
+      </Principal>
+      <Dependent Role="tbl_Prestamo">
+        <PropertyRef Name="nombre_Libro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dbLibreriaModelStoreContainer">
+    <EntitySet Name="tbl_Estudiante" EntityType="Self.tbl_Estudiante" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Libros" EntityType="Self.tbl_Libros" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Prestamo" EntityType="Self.tbl_Prestamo" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [tbl_Prestamo].[id] AS [id], 
+    [tbl_Prestamo].[documento_Est] AS [documento_Est], 
+    [tbl_Prestamo].[nombre_Libro] AS [nombre_Libro], 
+    [tbl_Prestamo].[fecha_Reserva] AS [fecha_Reserva], 
+    [tbl_Prestamo].[fecha_Devuelta] AS [fecha_Devuelta]
+    FROM [dbo].[tbl_Prestamo] AS [tbl_Prestamo]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__tbl_Prest__fecha__1BFD2C07" Association="Self.FK__tbl_Prest__fecha__1BFD2C07">
+      <End Role="tbl_Estudiante" EntitySet="tbl_Estudiante" />
+      <End Role="tbl_Prestamo" EntitySet="tbl_Prestamo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Prest__nombr__1CF15040" Association="Self.FK__tbl_Prest__nombr__1CF15040">
+      <End Role="tbl_Libros" EntitySet="tbl_Libros" />
+      <End Role="tbl_Prestamo" EntitySet="tbl_Prestamo" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

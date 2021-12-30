@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbLibreriaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_Estudiante">
+    <Key>
+      <PropertyRef Name="documento" />
+    </Key>
+    <Property Name="documento" Type="int" Nullable="false" />
+    <Property Name="nombre_completo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="programa" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Libro">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="codigo" Type="int" Nullable="false" />
+    <Property Name="nombre_autor" Type="varchar" MaxLength="50" />
+    <Property Name="nombre_libro" Type="varchar" MaxLength="30" />
+    <Property Name="fecha_nacimiento" Type="date" />
+    <Property Name="fecha_publicacion" Type="date" />
+  </EntityType>
+  <EntityContainer Name="dbLibreriaModelStoreContainer">
+    <EntitySet Name="tbl_Estudiante" EntityType="Self.tbl_Estudiante" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Libro" EntityType="Self.tbl_Libro" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

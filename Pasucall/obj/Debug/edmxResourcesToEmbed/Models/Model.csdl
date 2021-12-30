@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbLibreriaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tbl_Estudiante">
+    <Key>
+      <PropertyRef Name="documento" />
+    </Key>
+    <Property Name="documento" Type="Int32" Nullable="false" />
+    <Property Name="nombre_completo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="prgrama" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="tbl_Prestamo" Relationship="Self.FK__tbl_Prest__docum__145C0A3F" FromRole="tbl_Estudiante" ToRole="tbl_Prestamo" />
+  </EntityType>
+  <EntityType Name="tbl_Libro">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="codigo" Type="Int32" Nullable="false" />
+    <Property Name="nombre_autor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nombre_libro" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="fecha_nacimiento" Type="DateTime" Precision="0" />
+    <Property Name="fecha_publicacion" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="tbl_Prestamo" Relationship="Self.FK__tbl_Prest__codig__15502E78" FromRole="tbl_Libro" ToRole="tbl_Prestamo" />
+  </EntityType>
+  <EntityType Name="tbl_Prestamo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="documento_Est" Type="Int32" Nullable="false" />
+    <Property Name="codigo_Libro" Type="Int32" Nullable="false" />
+    <Property Name="fecha_prestamo" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="fecha_entrega" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="tbl_Estudiante" Relationship="Self.FK__tbl_Prest__docum__145C0A3F" FromRole="tbl_Prestamo" ToRole="tbl_Estudiante" />
+    <NavigationProperty Name="tbl_Libro" Relationship="Self.FK__tbl_Prest__codig__15502E78" FromRole="tbl_Prestamo" ToRole="tbl_Libro" />
+  </EntityType>
+  <Association Name="FK__tbl_Prest__docum__145C0A3F">
+    <End Role="tbl_Estudiante" Type="Self.tbl_Estudiante" Multiplicity="1" />
+    <End Role="tbl_Prestamo" Type="Self.tbl_Prestamo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Estudiante">
+        <PropertyRef Name="documento" />
+      </Principal>
+      <Dependent Role="tbl_Prestamo">
+        <PropertyRef Name="documento_Est" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Prest__codig__15502E78">
+    <End Role="tbl_Libro" Type="Self.tbl_Libro" Multiplicity="1" />
+    <End Role="tbl_Prestamo" Type="Self.tbl_Prestamo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Libro">
+        <PropertyRef Name="codigo" />
+      </Principal>
+      <Dependent Role="tbl_Prestamo">
+        <PropertyRef Name="codigo_Libro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dbLibreriaEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tbl_Estudiante" EntityType="Self.tbl_Estudiante" />
+    <EntitySet Name="tbl_Libro" EntityType="Self.tbl_Libro" />
+    <EntitySet Name="tbl_Prestamo" EntityType="Self.tbl_Prestamo" />
+    <AssociationSet Name="FK__tbl_Prest__docum__145C0A3F" Association="Self.FK__tbl_Prest__docum__145C0A3F">
+      <End Role="tbl_Estudiante" EntitySet="tbl_Estudiante" />
+      <End Role="tbl_Prestamo" EntitySet="tbl_Prestamo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Prest__codig__15502E78" Association="Self.FK__tbl_Prest__codig__15502E78">
+      <End Role="tbl_Libro" EntitySet="tbl_Libro" />
+      <End Role="tbl_Prestamo" EntitySet="tbl_Prestamo" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

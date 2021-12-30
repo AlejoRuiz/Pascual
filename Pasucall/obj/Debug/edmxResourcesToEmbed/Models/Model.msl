@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbLibreriaModelStoreContainer" CdmEntityContainer="dbLibreriaEntities1">
+    <EntitySetMapping Name="tbl_Estudiante">
+      <EntityTypeMapping TypeName="dbLibreriaModel.tbl_Estudiante">
+        <MappingFragment StoreEntitySet="tbl_Estudiante">
+          <ScalarProperty Name="documento" ColumnName="documento" />
+          <ScalarProperty Name="nombre_completo" ColumnName="nombre_completo" />
+          <ScalarProperty Name="prgrama" ColumnName="prgrama" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Libro">
+      <EntityTypeMapping TypeName="dbLibreriaModel.tbl_Libro">
+        <MappingFragment StoreEntitySet="tbl_Libro">
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="nombre_autor" ColumnName="nombre_autor" />
+          <ScalarProperty Name="nombre_libro" ColumnName="nombre_libro" />
+          <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
+          <ScalarProperty Name="fecha_publicacion" ColumnName="fecha_publicacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Prestamo">
+      <EntityTypeMapping TypeName="dbLibreriaModel.tbl_Prestamo">
+        <MappingFragment StoreEntitySet="tbl_Prestamo">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="documento_Est" ColumnName="documento_Est" />
+          <ScalarProperty Name="codigo_Libro" ColumnName="codigo_Libro" />
+          <ScalarProperty Name="fecha_prestamo" ColumnName="fecha_prestamo" />
+          <ScalarProperty Name="fecha_entrega" ColumnName="fecha_entrega" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

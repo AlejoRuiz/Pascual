@@ -1,0 +1,49 @@
+﻿@model Pasucall.Models.tbl_Estudiante
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/StyleSheet.css" rel="stylesheet" />
+
+<h2>Eliminar Estuidante</h2>
+
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        
+        <dt>
+            <label>Nombre completo</label>
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.nombre_completo)
+        </dd>
+        <br />
+        <dt>
+            <label>Documento</label>
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.documento)
+        </dd>
+
+        <br />
+        <dt>
+            <label>Programa</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.programa)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+    <input type="submit" value="Delete" class="btn btn-danger" /> |
+    <button type="button" class="btn btn-outline-dark">@Html.ActionLink("Volver", "Index",null,new { @class = "my-class" })</button>
+    
+</div>
+    }
+</div>

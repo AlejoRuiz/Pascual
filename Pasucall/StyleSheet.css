@@ -1,0 +1,54 @@
+﻿.sect {
+    position: absolute;
+    top:0;
+    left:650px;
+
+}
+
+.txt {
+    position: relative;
+    left: 400px;
+}
+
+.form-group {
+    font-size: large;
+}
+
+.btnEst {
+    position: relative;
+    
+}
+
+#documento-error, #nombre_completo-error, #programa-error {
+    position: relative;
+    right: 400px;
+    color: coral;
+}
+
+.table{
+    text-align:center;
+}
+
+#codigo-error, #nombre_autor-error, #nombre_libro-error, #fecha_nacimiento-error, #fecha_publicacion-error {
+    position: relative;
+    right: 400px;
+    color: coral;
+}
+
+
+a.my-class {
+    color: #ff0000
+}
+
+    a.my-class:active {
+        color: #4cff00
+    }
+
+    a.my-class:link {
+        color: #00b9ff
+    }
+
+    a.my-class:visited {
+        color: #000000
+    }
+

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbLibreriaModelStoreContainer" CdmEntityContainer="dbLibreriaEntities">
+    <EntitySetMapping Name="tbl_Estudiante">
+      <EntityTypeMapping TypeName="dbLibreriaModel.tbl_Estudiante">
+        <MappingFragment StoreEntitySet="tbl_Estudiante">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre_Completo" ColumnName="nombre_Completo" />
+          <ScalarProperty Name="documento" ColumnName="documento" />
+          <ScalarProperty Name="programa" ColumnName="programa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Libros">
+      <EntityTypeMapping TypeName="dbLibreriaModel.tbl_Libros">
+        <MappingFragment StoreEntitySet="tbl_Libros">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fecha_Nacimiento" ColumnName="fecha_Nacimiento" />
+          <ScalarProperty Name="lugar_Nacimiento" ColumnName="lugar_Nacimiento" />
+          <ScalarProperty Name="nombre_Libro" ColumnName="nombre_Libro" />
+          <ScalarProperty Name="fecha_Publicacion" ColumnName="fecha_Publicacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Prestamo">
+      <EntityTypeMapping TypeName="dbLibreriaModel.tbl_Prestamo">
+        <MappingFragment StoreEntitySet="tbl_Prestamo">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="documento_Est" ColumnName="documento_Est" />
+          <ScalarProperty Name="nombre_Libro" ColumnName="nombre_Libro" />
+          <ScalarProperty Name="fecha_Reserva" ColumnName="fecha_Reserva" />
+          <ScalarProperty Name="fecha_Devuelta" ColumnName="fecha_Devuelta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

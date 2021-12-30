@@ -1,0 +1,42 @@
+﻿@model Pasucall.Models.tbl_Estudiante
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/StyleSheet.css" rel="stylesheet" />
+<h2>Detalles Estudiante</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label>Nombre completo</label>
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.nombre_completo)
+        </dd>
+        <br />
+        <dt>
+            <label>Documento</label>
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.documento)
+        </dd>
+
+        <br />
+        <dt>
+            <label>Programa</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.programa)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <button type="button" class="btn btn-light" id="Btt">@Html.ActionLink("Volver", "Index")</button>
+    
+
+</p>
