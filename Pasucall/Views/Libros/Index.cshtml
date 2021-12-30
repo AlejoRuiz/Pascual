@@ -6,13 +6,12 @@
 }
 
 <h2>Libros</h2>
-<hr />
+
 
 <button type="button" class="btn btn-success">
     @Html.ActionLink("Agregar Libro", "Create", null, new { @class = "my-class" })
 </button>
-<hr />
-
+<p></p>
 <table class="table table-dark">
     <tr>
         <th>
@@ -30,7 +29,7 @@
         <th>
             <label>Fecha Publicacion</label>
         </th>
-        <th></th>
+        <th><label>Acciones</label></th>
     </tr>
 
 @foreach (var item in Model) {
@@ -51,9 +50,9 @@
         @Html.DisplayFor(modelItem => item.fecha_publicacion)
     </td>
     <td>
-        <button type="button" class="btn btn btn-outline-dark" >@Html.ActionLink("Editar", "Edit", new { id = item.codigo }) </button>
-        <button type="button" class="btn btn-warning">@Html.ActionLink("Detalles", "Details", new { id = item.codigo }) </button>
-        <button type="button" class="btn btn-light">@Html.ActionLink("Eliminar", "Delete", new { id = item.codigo }) </button>
+        <a class="btn btn btn-outline-info" onclick=@Html.ActionLink("Editar", "Edit", new { id = item.codigo })> </a>
+        <a class="btn btn-outline-warning" onclick=@Html.ActionLink("Detalles", "Details", new { id = item.codigo })> </a>
+        <a class="btn btn-outline-light" onclick=@Html.ActionLink("Eliminar", "Delete", new { id = item.codigo })> </a>
 
         
     </td>

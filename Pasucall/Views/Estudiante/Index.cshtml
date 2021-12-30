@@ -7,15 +7,13 @@
 
 <h2>Estudiantes</h2>
 
-<button type="button" class="btn btn-success">   
-    @Html.ActionLink("Create New", "Create",null, new { @class = "my-class" })   
-</button>
-<br />
-<br />
+<a  class="btn btn-success" onclick=@Html.ActionLink("Agregar Estudiante", "Create",null, new { @class = "agregar" }) <p>
+    </p> 
+</a>
 
 
 <table class="table table-dark">
-    
+
     <tr>
         <th>
             <label>Documento</label>
@@ -28,7 +26,6 @@
         </th>
         <th><label>Acciones</label></th>
     </tr>
-    <div class="text-center"></div>
     @foreach (var item in Model)
     {
         <tr>
@@ -42,9 +39,10 @@
                 @Html.DisplayFor(modelItem => item.programa)
             </td>
             <td>
-                <button type="button" class="btn btn-outline-dark">@Html.ActionLink("Editar", "Edit", new { @class = "my-class", id = item.documento})</button>
-                 |<button type="button" class="btn btn-warning">@Html.ActionLink("Detalles", "Details", new { @class = "my-class", id = item.documento })</button>
-                 |<button type="button" class="btn btn-light" >@Html.ActionLink("Eliminar", "Delete", new { @class = "my-class", id = item.documento })</button>
+                <a class="btn btn-outline-info"  onclick=@Html.ActionLink("Editar ", "Edit", new { id = item.documento})></a>       
+                <a  class="btn btn-outline-warning"onclick=@Html.ActionLink("Detalles", "Details", new { id = item.documento })></a>
+                <a  class="btn btn-outline-light" onclick=@Html.ActionLink("Eliminar", "Delete", new { id = item.documento })> </a>
+
 
             </td>
         </tr>

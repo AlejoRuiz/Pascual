@@ -56,9 +56,7 @@
     </div>
 }
 
-<div>
-    <button type="button" class="btn btn-light" id="Btt">@Html.ActionLink("Cancelar", "Index")</button>
-</div>
+<a class="btn btn-outline-danger" onclick=@Html.ActionLink("Cancelar", "Index") <p></p></a>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
